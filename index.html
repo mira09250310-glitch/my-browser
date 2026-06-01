@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Browser</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  margin: 20px;
+}
+input {
+  width: 70%;
+  padding: 10px;
+}
+button {
+  padding: 10px;
+}
+.links {
+  margin-top: 20px;
+}
+a {
+  margin: 10px;
+}
+</style>
+</head>
+<body>
+
+<h1>My Browser</h1>
+
+<input id="url" placeholder="URLまたは検索">
+<button onclick="go()">GO</button>
+
+<div class="links">
+  <a href="https://www.youtube.com">YouTube</a>
+  <a href="https://x.com">X</a>
+  <a href="https://soundcloud.com">SoundCloud</a>
+  <a href="https://www.pinterest.com">Pinterest</a>
+</div>
+
+<script>
+function go() {
+  let q = document.getElementById("url").value.trim();
+
+  if (
+    q.startsWith("http://") ||
+    q.startsWith("https://")
+  ) {
+    window.location.href = q;
+  } else if (q.includes(".")) {
+    window.location.href = "https://" + q;
+  } else {
+    window.location.href =
+      "https://www.google.com/search?q=" +
+      encodeURIComponent(q);
+  }
+}
+</script>
+
+</body>
+</html>
